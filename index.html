@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/fontawesome-free-5.15.1-web/css/all.css">
+  <link rel="stylesheet" href="">
+  <title>Document</title>
+</head>
+<style>
+  .slider {
+    position: relative;
+  }
+  
+  .pic-slider-dot .dot:hover {
+    color: aqua;
+  }
+  
+  .pic-slider-dot {
+    bottom: 0;
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    background-color: transparent;
+  }
+  
+  .mySlides {
+    display: none
+  }
+  
+  img {
+    vertical-align: middle;
+  }
+  /* Slideshow container */
+  
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  /* The dots/bullets/indicators */
+  
+  .dot {
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #000;
+    opacity: .2;
+  }
+  
+  .active,
+  .dot:hover {
+    cursor: pointer;
+  }
+  /* Fading animation */
+  
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {
+      opacity: .4
+    }
+    to {
+      opacity: 1
+    }
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: .4
+    }
+    to {
+      opacity: 1
+    }
+  }
+  /* On smaller screens, decrease text size */
+  
+  @media only screen and (max-width: 300px) {
+    .prev,
+    .next,
+    .text {
+      font-size: 11px
+    }
+  }
+</style>
+
+<body>
+  <header>
+    <div class="head-menu">
+      <div class="home-logo">
+        <a href="" class="logo">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 457 150" style="enable-background:new 0 0 457 150;" xml:space="preserve">
+            <g id="Squares">
+              <path class="st0"
+                d="M59.8,1.9H33.7v26.2h26.2V1.9L59.8,1.9z M24.2,5H4v20.2h20.2V5L24.2,5z M36.6,33.4H15.9v20.7h20.7V33.4z">
+              </path>
+            </g>
+            <g id="Slogan">
+              <path class="st1" d="M53.6,138.4h-8v2.5h7.6c1.2,0,2,0.2,2.4,0.6c0.4,0.4,0.6,1.1,0.6,2.2v1.6c0,1.1-0.2,1.8-0.6,2.2
+                    c-0.4,0.4-1.2,0.6-2.4,0.6h-7.6c-1.2,0-2-0.2-2.4-0.6c-0.4-0.4-0.6-1.1-0.6-2.2v-0.3l2.5-0.5v1.4h8.6v-2.7h-7.6
+                    c-1.2,0-2-0.2-2.4-0.6c-0.4-0.4-0.6-1.1-0.6-2.2v-1.3c0-1,0.2-1.8,0.6-2.2c0.4-0.4,1.2-0.6,2.4-0.6H53c1.2,0,2,0.2,2.4,0.6
+                    c0.4,0.4,0.7,1,0.7,2v0.3l-2.5,0.5L53.6,138.4L53.6,138.4z M61.1,148v-11.7H64V148H61.1L61.1,148z M69.2,148v-11.7h2.3l5.7,6.9
+                    l5.7-6.9h2.3V148h-2.6v-8l-5.2,6.6h-0.6l-5.3-6.4v7.8H69.2L69.2,148z M90.4,148v-11.7h10.5c1,0,1.7,0.2,2.1,0.5
+                    c0.4,0.4,0.6,0.9,0.6,1.7v2.6c0,0.8-0.2,1.4-0.6,1.7c-0.4,0.4-1.1,0.5-2.1,0.5h-7.7v4.6H90.4L90.4,148z M99.7,138.3h-6.5v3.1h6.5
+                    c0.5,0,0.8-0.1,1-0.2c0.2-0.1,0.3-0.4,0.3-0.7v-1.2c0-0.3-0.1-0.6-0.3-0.7C100.5,138.4,100.2,138.3,99.7,138.3L99.7,138.3z
+                    M107.7,148v-11.7h2.9v9.5h9.2v2.2H107.7L107.7,148z M122.9,148v-11.7h12.5v2.1h-9.7v2.5h5.6v2h-5.6v2.9h9.8v2.2H122.9L122.9,148z
+                    M154.8,148v-5.2l-6.4-6.4h3.8l4.2,4.4l4.2-4.4h3.3l-6.4,6.4v5.3H154.8L154.8,148z M166.8,148v-11.7h12.5v2.1h-9.7v2.5h5.6v2h-5.6
+                    v2.9h9.8v2.2H166.8L166.8,148z M190.5,138.4v9.6h-2.8v-9.6h-5.6v-2.1h14.1v2.1H190.5L190.5,138.4z M210.6,148v-11.7h10.5
+                    c1,0,1.7,0.2,2.1,0.5c0.4,0.4,0.6,0.9,0.6,1.7v1.4c0,0.5-0.2,1-0.5,1.3c-0.3,0.3-0.8,0.6-1.5,0.7c0.7,0.1,1.2,0.4,1.5,0.7
+                    c0.4,0.4,0.5,0.9,0.5,1.5v1.5c0,0.8-0.3,1.3-0.9,1.7c-0.6,0.4-1.5,0.6-2.7,0.6L210.6,148L210.6,148z M219.8,138.2h-6.4v2.8h6.4
+                    c0.5,0,0.8-0.1,1-0.2s0.3-0.3,0.3-0.6V139c0-0.3-0.1-0.5-0.3-0.6C220.6,138.3,220.3,138.2,219.8,138.2L219.8,138.2z M219.8,142.9
+                    h-6.4v3h6.4c0.5,0,0.9-0.1,1.1-0.2c0.2-0.2,0.3-0.4,0.3-0.8V144c0-0.4-0.1-0.7-0.3-0.8C220.7,143,220.3,142.9,219.8,142.9
+                    L219.8,142.9z M228.7,148v-11.7h12.5v2.1h-9.7v2.5h5.6v2h-5.6v2.9h9.8v2.2H228.7L228.7,148z M256.3,138.4h-8v2.5h7.6
+                    c1.2,0,2,0.2,2.4,0.6c0.4,0.4,0.6,1.1,0.6,2.2v1.6c0,1.1-0.2,1.8-0.6,2.2c-0.4,0.4-1.2,0.6-2.4,0.6h-7.6c-1.2,0-2-0.2-2.4-0.6
+                    c-0.4-0.4-0.6-1.1-0.6-2.2v-0.3l2.5-0.5v1.4h8.6v-2.7h-7.6c-1.2,0-2-0.2-2.4-0.6c-0.4-0.4-0.6-1.1-0.6-2.2v-1.3
+                    c0-1,0.2-1.8,0.6-2.2c0.4-0.4,1.2-0.6,2.4-0.6h6.9c1.2,0,2,0.2,2.4,0.6s0.7,1,0.7,2v0.3l-2.5,0.5L256.3,138.4L256.3,138.4z
+                    M270.8,138.4v9.6h-2.8v-9.6h-5.6v-2.1h14.1v2.1H270.8L270.8,138.4z M301.6,138.4h-8v2.5h7.6c1.2,0,2,0.2,2.4,0.6
+                    c0.4,0.4,0.6,1.1,0.6,2.2v1.6c0,1.1-0.2,1.8-0.6,2.2c-0.4,0.4-1.2,0.6-2.4,0.6h-7.6c-1.2,0-2-0.2-2.4-0.6c-0.4-0.4-0.6-1.1-0.6-2.2
+                    v-0.3l2.5-0.5v1.4h8.6v-2.7h-7.6c-1.2,0-2-0.2-2.4-0.6c-0.4-0.4-0.6-1.1-0.6-2.2v-1.3c0-1,0.2-1.8,0.6-2.2c0.4-0.4,1.2-0.6,2.4-0.6
+                    h6.9c1.2,0,2,0.2,2.4,0.6c0.4,0.4,0.7,1,0.7,2v0.3l-2.5,0.5L301.6,138.4L301.6,138.4z M311.7,145.8h9.4v-7.3h-9.4V145.8
+                    L311.7,145.8z M308.9,139.1c0-1.1,0.2-1.8,0.6-2.2c0.4-0.4,1.2-0.6,2.4-0.6h9c1.2,0,2,0.2,2.4,0.6c0.4,0.4,0.6,1.1,0.6,2.2v6.2
+                    c0,1.1-0.2,1.8-0.6,2.2c-0.4,0.4-1.2,0.6-2.4,0.6h-9c-1.2,0-2-0.2-2.4-0.6c-0.4-0.4-0.6-1.1-0.6-2.2L308.9,139.1L308.9,139.1z
+                    M328.9,148v-11.7h2.9v9.5h9.2v2.2H328.9L328.9,148z M347.5,136.3v9.5h8.1v-9.5h2.9v8.9c0,1.1-0.2,1.8-0.6,2.2
+                    c-0.4,0.4-1.2,0.6-2.4,0.6h-7.7c-1.2,0-2-0.2-2.4-0.6c-0.4-0.4-0.6-1.1-0.6-2.2v-8.9H347.5L347.5,136.3z M370.6,138.4v9.6h-2.8
+                    v-9.6h-5.6v-2.1h14.1v2.1H370.6L370.6,138.4z M380,148v-11.7h2.8V148H380L380,148z M390.6,145.8h9.4v-7.3h-9.4V145.8L390.6,145.8z
+                    M387.7,139.1c0-1.1,0.2-1.8,0.6-2.2c0.4-0.4,1.2-0.6,2.4-0.6h9c1.2,0,2,0.2,2.4,0.6c0.4,0.4,0.6,1.1,0.6,2.2v6.2
+                    c0,1.1-0.2,1.8-0.6,2.2c-0.4,0.4-1.2,0.6-2.4,0.6h-9c-1.2,0-2-0.2-2.4-0.6c-0.4-0.4-0.6-1.1-0.6-2.2L387.7,139.1L387.7,139.1z
+                    M407.7,148v-11.7h2l9.9,7.8v-7.8h2.6V148h-2l-9.9-7.9v7.9H407.7L407.7,148z M438.2,138.4h-8v2.5h7.6c1.2,0,2,0.2,2.4,0.6
+                    c0.4,0.4,0.6,1.1,0.6,2.2v1.6c0,1.1-0.2,1.8-0.6,2.2c-0.4,0.4-1.2,0.6-2.4,0.6h-7.6c-1.2,0-2-0.2-2.4-0.6c-0.4-0.4-0.6-1.1-0.6-2.2
+                    v-0.3l2.5-0.5v1.4h8.6v-2.7h-7.6c-1.2,0-2-0.2-2.4-0.6c-0.4-0.4-0.6-1.1-0.6-2.2v-1.3c0-1,0.2-1.8,0.6-2.2c0.4-0.4,1.2-0.6,2.4-0.6
+                    h6.9c1.2,0,2,0.2,2.4,0.6c0.4,0.4,0.7,1,0.7,2v0.3l-2.5,0.5L438.2,138.4L438.2,138.4z"></path>
+            </g>
+            <g id="tek">
+              <path class="st1"
+                d="M248.2,99.9c-0.8,3.5-0.8,6.4-0.1,8.7c0.7,2.3,1.9,4.1,3.6,5.4c1.7,1.3,3.8,2.2,6.3,2.8
+                    c2.5,0.5,5.2,0.8,8.1,0.8h7.5c3.8,0,7.1-0.4,10-1.3c2.9-0.9,5.4-2,7.5-3.6s3.7-3.3,5-5.4c1.3-2.1,2.2-4.3,2.7-6.7l1.3-6.1h-16.6
+                    l-0.7,3.4c-0.5,2.3-1.4,3.9-2.6,4.7c-1.2,0.9-3.4,1.3-6.5,1.3c-2.3,0-4-0.3-5.2-0.8c-1.2-0.6-1.5-1.8-1.1-3.7l4.2-19.4h34.1
+                    c0.7-1.8,1.5-3.5,2.5-5.2c1.9-3.2,4.2-6.1,7-8.5h-40.6l2.6-11.9h-19l-2.6,11.9h-10l-21.9,13.7h28.9L248.2,99.9L248.2,99.9z
+                    M376.5,116.7h19l4.4-20.2h3.8l15.9,20.2h24.2l-22.5-26.8l30.5-23.6h-24.9l-20.4,16.6h-3.6l8.3-37.8h-19L376.5,116.7L376.5,116.7z
+                    M308.6,93.6l1.1-4.8c1-4.7,2.4-8.6,4.2-11.7c1.8-3,3.9-5.4,6.4-7.1c2.5-1.7,5.2-2.9,8.1-3.5c3-0.6,6.2-0.9,9.7-0.9h13.3
+                    c5,0,9.3,0.3,12.8,0.9c3.5,0.6,6.2,1.7,8.1,3.4c1.9,1.6,3.1,3.8,3.6,6.7c0.5,2.8,0.2,6.4-0.7,10.8l-1.9,8.5h-46.1l-0.7,3.1
+                    c-0.6,2.7,0,4.5,1.7,5.4c1.7,0.9,4.5,1.4,8.5,1.4h5.8c2.6,0,4.6-0.2,6.1-0.5c1.5-0.3,2.7-0.8,3.5-1.3s1.4-1.1,1.7-1.8
+                    c0.3-0.7,0.6-1.4,0.7-2.1h17.8l-0.5,2.2c-0.7,3.2-1.9,5.8-3.7,7.8c-1.8,2-3.9,3.6-6.4,4.7c-2.5,1.1-5.3,1.9-8.5,2.3
+                    c-3.1,0.4-6.4,0.6-9.8,0.6h-14.2c-3.2,0-6.2-0.2-9.2-0.7c-3-0.5-5.5-1.5-7.6-3.2c-2.1-1.6-3.5-4.1-4.4-7.2
+                    C307.3,103.3,307.5,99,308.6,93.6L308.6,93.6z M329.6,84.5h27.7c0.3-1.5,0.4-2.7,0.2-3.7c-0.2-0.9-0.8-1.6-1.7-2.2s-2.3-0.9-4-1
+                    c-1.7-0.2-4-0.2-6.8-0.2c-3.1,0-5.6,0.1-7.4,0.2c-1.8,0.2-3.3,0.5-4.4,1c-1.1,0.5-1.9,1.3-2.4,2.2C330.4,81.8,330,83,329.6,84.5z">
+              </path>
+            </g>
+            <g id="EZ">
+              <polygon id="Z" class="st2" points="144.8,116.7 229.8,116.7 233.5,99.5 181.1,99.5 181.1,99.3 240.5,62.3 244.2,45.1 161.8,45.1 
+                    158.1,62.3 208,62.3 208,62.5 148.5,99.5 	"></polygon>
+              <path id="E" class="st2" d="M65.2,9.1h56.2c11.4,0,20.8,9.4,20.8,20.8v15.2H64.5l-15.1,70.1c-8.3-2.7-14.3-10.6-14.3-19.8V59.5H42
+                    V33.4h23.2L65.2,9.1L65.2,9.1z M142.2,48.1l-3,13.7H82.9l-2.5,11.5h53.4l-3.2,14.8H77.2l-2.5,11.5h57.7l-3.3,15.2
+                    c7.7-3.1,13.1-10.6,13.1-19.3L142.2,48.1L142.2,48.1z"></path>
+            </g>
+          </svg>
+        </a>
+      </div>
+      <div class="central-opt">
+        <ul>
+          <li>
+            <a href="">company
+            <i class="fas fa-caret-down"></i>
+            </a>
+
+          </li>
+          <li><a href="">services</a></li>
+          <li><a href="">getting started</a></li>
+          <li><a href="">careers</a></li>
+        </ul>
+      </div>
+      <div class="keep-in-touch">
+        <a href="">get in touch</a>
+      </div>
+      <div class="nav-bar">
+        <span><i class="fas fa-bars"></i></span>
+      </div>
+    </div>
+  </header>
+  <div class="body-content">
+    <div class="first-landing">
+      <div class="mid-justify">
+        <div class="left-landing col-4">
+          <h2 class="fl-title">
+            Simple software solutions that deliver <b>better results</b>
+          </h2>
+          <p class="fl-content">
+            Our software developers think big, design smart, and develop fast for all screens. They’re ready to turn your big idea into a reality. We keep improving our services to become the best IT software outsourcing company in Vietnam.
+          </p>
+          <span class="fl-readmore">
+            read more
+            <i class="far fa-play-circle"></i>
+          </span>
+        </div>
+        <div class="right-landing col-8">
+          <div class="right-landingpic">
+            <img src="img/banner_img.webp" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="techway">
+      <ul class="tech">
+        <li class="agile">agile</li>
+        <li class="scrum">scrum</li>
+        <li class="devops">devops</li>
+        <li class="cicd">ci/cd</li>
+        <li class="continousimprovement">continous improvement</li>
+        <li class="transparent">transparent</li>
+        <li class="costeffective">cost effective</li>
+      </ul>
+    </div>
+    <div class="second-landing">
+      <div class="overlay">
+        <div class="mid-justify">
+          <h3 class="sl-title">
+            Software Outsourcing Services
+          </h3>
+          <p class="sl-content">
+            Map a strategy, build a solution or elevate your product experience with focused engagements available as standalone offerings or as a part of your development projects service stack. EZtek is one of the top software outsourcing companies in Vietnam.
+          </p>
+          <div class="service">
+            <ul class="services">
+              <li>
+                <a href="" class="content-sev">
+                  <img src="img/service1.png" alt="">
+                  <span class="sev">web app development</span>
+                </a>
+              </li>
+              <li>
+                <a href="" class="content-sev">
+                  <img src="img/service2.png" alt="">
+                  <span class="sev">mobile app development</span>
+                </a>
+              </li>
+              <li>
+                <a href="" class="content-sev">
+                  <img src="img/service3.png" alt="">
+                  <span class="sev">agile team</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="third-landing">
+      <h1 class="tl-title mid-justify">
+        We keep improving our services to become the best IT software outsourcing company in Vietnam
+      </h1>
+      <div class="tl-left col-6">
+        <div class="angular-pic">
+          <img src="img/angular.png" alt="">
+        </div>
+      </div>
+      <div class="tl-right col-4">
+        <h3 class="landing-title">
+          We love Angular
+        </h3>
+        <p class="landing-content">We build seamless and smooth user experience web and mobile apps using Angular (a framework which is supported by Google). What we love about Angular:</p>
+        <p class="landing-content">– Great performance and responsiveness</p>
+        <p class="landing-content">– Easy to develop</p>
+      </div>
+      <div class="col-2"></div>
+      <div class="tl-bottom">
+        <div class="space col-2">
+
+        </div>
+        <div class="about-sev col-5">
+          <h3 class="landing-title">
+            Restful API
+          </h3>
+          <p class="landing-content"> We use .NET Core, JAVA to develop secure, scalable backend services for our Angular frontend mobile and web applications. We choose REST due to its:and mobile apps chve about Angular:</p>
+          <p class="landing-content">– Scalability</p>
+          <p class="landing-content">– Flexibility</p>
+          <p class="landing-content">– Portability</p>
+          <p class="landing-content">– Independence</p>
+        </div>
+        <div class="api-pic col-5">
+          <img src="img/api.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="aboutus">
+      <div class="white-content">
+        <div class="left-white-content box-cont">
+          <h3 class="big-title">What make us different</h3>
+          <h3 class="small-title">Our Record</h3>
+          <p class="w-cont">We have built a successful record cemented in results, trust & transparency as well as the ability to quickly understand the needs of our clients, develop solutions and execute them flawlessly.</p>
+          <h3 class="small-title">Our Development Teams</h3>
+          <p class="w-cont">Behind every success is a diverse multidisciplinary team. A mix of personalities and expertise united by a common vision and mission.</p>
+          <h3 class="small-title">Our Approach</h3>
+          <p class="w-cont space-rm2">We strongly believe in transparency, trust and a customer-centric approach.</p>
+          <span class="fl-readmore color-rm2">
+                read more
+                <i class="far fa-play-circle"></i>
+              </span>
+        </div>
+      </div>
+      <div class="grey-content">
+        <div class="right-white-content grey-cont">
+          <p class="title-grey-cont"><strong><strong>We do what we say,<br>We say what we do</strong></strong>
+          </p>
+          <p class="g-cont">We promise not only to talk the talk but to walk the talk. It is how we act that makes the biggest difference and what our ethics demand whether at work or in our personal life. Let’s us provide unbelievable experience in everything we do!</p>
+          <p class="g-cont">We continuously improve our software development services to be one of the best outsourcing firms in Vietnam.</p>
+          <div class="ceo-info">
+            <div class="info">
+              <p class="ceo-name">thinh tat</p>
+              <span class="position">ceo</span>
+            </div>
+
+            <div class="border-left">
+              <div class="ceo-pic">
+                <img src="img/Untitled-2.webp" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider">
+      <div class="mySlides fade">
+        <img src="img/DSC_7711.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides fade">
+        <img src="img/DSC_7763.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides fade">
+        <img src="img/DSC_7811.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides fade">
+        <img src="img/DSC_7831.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides fade">
+        <img src="img/DSC_7857.jpg" style="width:100%">
+      </div>
+      <div class="pic-slider-dot">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="background-image">
+      <div class="overlay2"></div>
+      <h2 class="footer-title">Join The Future With Us!</h2>
+      <div class="center-vis">
+        <span class="vision">You have a vision. We have a team to get you there.</span>
+      </div>
+      <div class="mid-justify">
+        <div class="box-info">
+          <form action="/action_page.php">
+            <input type="text" id="form-info" name="fname" autocomplete="off" placeholder="First Name">
+            <input type="text" id="form-info" name="lname" autocomplete="off" placeholder="Last Name"><br>
+            <input type="text" id="form-info" name="email" autocomplete="off" placeholder="Email">
+            <input type="text" id="form-info" name="phone" autocomplete="off" placeholder="Phone"><br>
+            <input type="text-form" class="messenger" name="messenger" autocomplete="off" placeholder="Messenger" style="height: 290px;"><br>
+            <button type="submit" class="btn-send"> 
+              <span class="send">
+                send messenger
+              </span> 
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="skew-footer">
+      <div class="padding-footer">
+        <div class="col-3">
+          <span class="footer-tit">
+            services
+          </span><br>
+          <a href="" class="footer-details">
+            custom software development
+          </a><br>
+        </div>
+        <div class="col-3">
+          <span class="footer-tit">who we are</span><br>
+          <a href="" class="footer-details">about eztek</a><br>
+          <a href="" class="footer-details">company culture</a><br>
+          <a href="" class="footer-details">careers</a><br>
+          <a href="" class="footer-details">blog</a>
+        </div>
+        <div class="col-3">
+          <span class="footer-tit">why eztek</span><br>
+          <a href="" class="footer-details">process</a><br>
+          <a href="" class="footer-details">promises</a><br>
+          <a href="" class="footer-details">mission & vision</a>
+        </div>
+        <div class="col-3">
+          <span class="footer-tit">what we do</span><br>
+          <a href="" class="footer-details">web app development</a><br>
+          <a href="" class="footer-details">mobile app development</a><br>
+          <a href="" class="footer-details">dedicated teams</a>
+        </div>
+      </div>
+      <div class="end-homepage">
+        <p class="end-para">Copyright © 2011-2020 EZtek Software Development and Software Outsourcing Company.</p>
+        <div class="end-icon">
+          <span><i class="fab fa-facebook"></i></span>
+          <span><i class="fab fa-linkedin"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName(" mySlides ");
+    var dots = document.getElementsByClassName("dot ");
+    if (n > slides.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+      slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none ";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active ", " ");
+    }
+    slides[slideIndex - 1].style.display = "block ";
+    dots[slideIndex - 1].className += " active ";
+  }
+</script>
+</script>
